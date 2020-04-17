@@ -12,13 +12,14 @@ import {
   Typography
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import useAuth from '../../hook/authhook';
+
 
 import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
 
 const schema = {
-  email: {
+  username: {
     presence: { allowEmpty: false, message: 'is required' },
-    email: true,
     length: {
       maximum: 64
     }
@@ -136,8 +137,12 @@ const SignIn = props => {
     touched: {},
     errors: {}
   });
+  const [{ authenticated },checkAuthentication] = useAuth();
 
   useEffect(() => {
+    if(authenticated) {
+      history.push('/dashboard');
+    }
     const errors = validate(formState.values, schema);
 
     setFormState(formState => ({
@@ -145,7 +150,7 @@ const SignIn = props => {
       isValid: errors ? false : true,
       errors: errors || {}
     }));
-  }, [formState.values]);
+  }, [formState.values, authenticated]);
 
   const handleBack = () => {
     history.goBack();
@@ -172,7 +177,8 @@ const SignIn = props => {
 
   const handleSignIn = event => {
     event.preventDefault();
-    history.push('/');
+    checkAuthentication(formState.values.username, formState.values.password); 
+  
   };
 
   const hasError = field =>
@@ -277,20 +283,20 @@ const SignIn = props => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  or login with email address
+                  or login with username address
                 </Typography>
                 <TextField
                   className={classes.textField}
-                  error={hasError('email')}
+                  error={hasError('username')}
                   fullWidth
                   helperText={
-                    hasError('email') ? formState.errors.email[0] : null
+                    hasError('username') ? formState.errors.username[0] : null
                   }
-                  label="Email address"
-                  name="email"
+                  label="username"
+                  name="username"
                   onChange={handleChange}
                   type="text"
-                  value={formState.values.email || ''}
+                  value={formState.values.username || ''}
                   variant="outlined"
                 />
                 <TextField

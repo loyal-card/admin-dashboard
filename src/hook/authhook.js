@@ -9,18 +9,20 @@ const useAuth = () => {
     const checkAuthentication = async (userName, password) => {
       setLoading(true);
       try {
-        const result = await fetch('http://localhost:5000/api/checkAuthentication', {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
           method: 'POST',
-          body: {
-              userName: userName,
-              password: password,
+          headers: {
+            'Content-Type': 'application/json'
           },
+          body: JSON.stringify({
+              username: userName,
+              password: password
+          }),
         });
-        
+        let result = await response.json();
         let expiredTimeStamp = new Date().getTime() / 1000 + result.expiresIn;
         window.localStorage.setItem('expiresIn', expiredTimeStamp);
         window.localStorage.setItem('token', result.token);
-
         setAuthenticated(result.token != null);
       } catch (error) {
         setError(error);
