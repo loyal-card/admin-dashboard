@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-
+import PrivateRoute from './../src/routes/private-route';
 import { RouteWithLayout } from './components';
 import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
@@ -25,7 +25,7 @@ const Routes = () => {
         from="/"
         to="/dashboard"
       />
-      <RouteWithLayout
+      <PrivateRoute
         component={DashboardView}
         exact
         layout={MainLayout}
@@ -77,7 +77,7 @@ const Routes = () => {
         component={SignInView}
         exact
         layout={MinimalLayout}
-        path="/sign-in"
+        path="/login"
       />
       <RouteWithLayout
         component={NotFoundView}
