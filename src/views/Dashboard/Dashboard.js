@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 
@@ -7,10 +7,8 @@ import {
   TotalUsers,
   TasksProgress,
   TotalProfit,
-  LatestSales,
-  UsersByDevice,
-  LatestProducts,
-  LatestOrders
+  LatestOrders,
+  ScanCode
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -71,25 +69,7 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestSales />
-        </Grid>
-        <Grid
-          item
-          lg={4}
-          md={6}
-          xl={3}
-          xs={12}
-        >
-          <UsersByDevice />
-        </Grid>
-        <Grid
-          item
-          lg={4}
-          md={6}
-          xl={3}
-          xs={12}
-        >
-          <LatestProducts />
+          <ScanCode />
         </Grid>
         <Grid
           item

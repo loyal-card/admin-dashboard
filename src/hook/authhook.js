@@ -8,6 +8,7 @@ const useAuth = () => {
     const [error, setError] = useState(false);
     const checkAuthentication = async (userName, password) => {
       setLoading(true);
+      setError(false);
       try {
         const response = await fetch('http://localhost:5000/api/auth/login', {
           method: 'POST',
@@ -25,7 +26,7 @@ const useAuth = () => {
         window.localStorage.setItem('token', result.token);
         setAuthenticated(result.token != null);
       } catch (error) {
-        setError(error);
+        setError(true);
       }
       setLoading(false);
     };
