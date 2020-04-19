@@ -3,18 +3,22 @@ import { Route, Redirect } from 'react-router-dom';
 import { RouteWithLayout } from '../components';
 import useAuth from '../hook/authhook';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = props => {
+  const { layout: Layout, component: Component, path: path, ...rest } = props;
   const [{ authenticated }] = useAuth();
-
   return (
     <Route
-      {...rest}
-      render={(props) =>
+      {...props}
+      render={(matchProps) => 
         authenticated ? (
-          <RouteWithLayout {...props} />
+          <RouteWithLayout
+            component={Component}
+            layout={Layout}
+            path={path}
+          />
         ) : (
-          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        )
+            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+          )
       }
     />
   );
