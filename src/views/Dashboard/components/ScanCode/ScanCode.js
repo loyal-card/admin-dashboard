@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React,{ useEffect } from 'react';
 import QrReader from 'react-qr-reader';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
@@ -27,13 +27,20 @@ const useStyles = makeStyles(theme => ({
 }));
 const ScanCode = props => {
   const { className, ...rest } = props;
-  const [{ verifyStatus, loading, error }, verifyCode] = useScanCode();
+  const [{ verifyStatus, loading, error, customerEmail }, verifyCode] = useScanCode();
 
   const classes = useStyles();
   const theme = useTheme();
   const handleScan = data => {
-    if (data) {
-      verifyCode(data)
+    if(!data) {
+      console.log("cannot detect url")
+      return;
+    }
+    const dataArr = data.split("&email=");
+    let verifyUrl = dataArr[0];
+    let customerEmail = dataArr[1];
+    if (verifyUrl) {
+      verifyCode(verifyUrl);
     }
   }
   const handleError = err => {
