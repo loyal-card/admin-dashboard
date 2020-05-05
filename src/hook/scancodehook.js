@@ -21,12 +21,10 @@ const useScanCode = () => {
             'Content-Type': 'application/json'
           }
         });
-        let result = await response.json();
+        if(response.statusText==="OK"){
+          setVerifyStatus(true);
+        }
         
-        console.log(result);
-       
-
-        setVerifyStatus(result == 'OK');
       } catch (error) {
         setError(true);
       }

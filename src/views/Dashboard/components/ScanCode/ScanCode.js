@@ -40,6 +40,7 @@ const ScanCode = props => {
     let verifyUrl = dataArr[0];
     let customerEmail = dataArr[1];
     if (verifyUrl) {
+      console.log(verifyUrl);
       verifyCode(verifyUrl);
     }
   }
