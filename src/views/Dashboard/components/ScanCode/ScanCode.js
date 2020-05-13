@@ -55,6 +55,7 @@ const ScanCode = props => {
   }
 
   useEffect(() => {
+    slack
     if (verifyStatus) {
       console.log('verified');
       if (method == 'purchase') {
