@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import QrReader from 'react-qr-reader';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
@@ -27,18 +27,24 @@ const useStyles = makeStyles(theme => ({
 }));
 const ScanCode = props => {
   const { className, ...rest } = props;
-  const [{ verifyStatus, loading, error, customerEmail }, verifyCode] = useScanCode();
+  const [customerEmail, setCusEmail] = useState(null);
+  const [method, setMethod] = useState(null);
 
+  const [{ verifyStatus, loading, error, purchasedStatus }, verifyCode, makePurchase] = useScanCode();
   const classes = useStyles();
   const theme = useTheme();
   const handleScan = data => {
-    if(!data) {
+    if (!data) {
       console.log("cannot detect url")
       return;
     }
     const dataArr = data.split("&email=");
+
     let verifyUrl = dataArr[0];
-    let customerEmail = dataArr[1];
+    const paramArr = dataArr[1].split("&method=");
+    setCusEmail(paramArr[0]);
+    setMethod(paramArr[1]);
+
     if (verifyUrl) {
       console.log(verifyUrl);
       verifyCode(verifyUrl);
@@ -49,10 +55,16 @@ const ScanCode = props => {
   }
 
   useEffect(() => {
-    if(verifyStatus) {
+    if (verifyStatus) {
       console.log('verified');
+      if (method == 'purchase') {
+        makePurchase(customerEmail, 1);
+      } else if (method == 'claim') {
+        //todo
+      }
     }
-  }, [verifyStatus]);
+  }, [verifyStatus]); 
+
   return (
     <Card
       {...rest}
