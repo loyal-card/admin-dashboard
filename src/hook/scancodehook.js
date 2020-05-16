@@ -24,6 +24,7 @@ const useScanCode = () => {
       })
       if (response.status == 200) {
         setPurchasedStatus(true);
+
       }
 
     } catch (error) {

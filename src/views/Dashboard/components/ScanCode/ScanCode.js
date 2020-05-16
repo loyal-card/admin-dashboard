@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import QrReader from 'react-qr-reader';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
