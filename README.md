@@ -1,99 +1,28 @@
-## [Devias Kit - Admin Dashboard](https://react-material-dashboard.devias.io/dashboard) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=%F0%9F%9A%A8Devias%20Freebie%20Alert%20-%20An%20awesome%20ready-to-use%20register%20page%20made%20with%20%23material%20%23react%0D%0Ahttps%3A%2F%2Fdevias.io%20%23createreactapp%20%23devias%20%23material%20%23freebie%20%40devias-io)
-
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
-
-[![React Material Dashboard](https://s3.eu-west-2.amazonaws.com/devias/products/react-material-dashboard/react-material-free-xl.jpg)](https://react-material-dashboard.devias.io/dashboard)
-
-> Free React Dashboard made with [Material UI's](https://material-ui.com/?ref=devias-io) components, [React](https://reactjs.org/?ref=devias-io) and of course [create-react-app](https://facebook.github.io/create-react-app/?ref=devias-io) to boost your app development process! We'll launch a pro version soon, so if you are interested subscribe to our personal emailing list on [https://devias.io/](https://devias.io/)
-
-## Demo
-
-- [Dashboard Page](http://react-material-dashboard.devias.io/dashboard?ref=github-readme)
-- [Users Page](http://react-material-dashboard.devias.io/users?ref=github-readme)
-- [Products Page](http://react-material-dashboard.devias.io/products?ref=github-readme)
-- [Register Page](http://react-material-dashboard.devias.io/sign-up?ref=github-readme)
-- [Typography Page](http://react-material-dashboard.devias.io/typography?ref=github-readme)
-- [Account Page](http://react-material-dashboard.devias.io/account?ref=github-readme)
-- [Settings Page](http://react-material-dashboard.devias.io/settings?ref=github-readme)
-
-## Upgrade to PRO Version
-
-We also have a pro version of this product which bundles even more pages and components if you want to save more time and design efforts :)
-
-| Devias Demo              | [Devias Kit PRO](https://themes.material-ui.com/previews/devias-kit-pro/) |
-| ------------------------ | :----------------------------------------------------------- |
-| **7** Demo Pages         | **32** Demo Pages                                            |
-| **2** Integrated Plugins | **8** Integrated Plugins                                     |
-| -                        | ✔ Design Files (sketch & figma) - for Extended License       |
-| -                        | ✔ Complete Users Flows                                       |
-
-## Quick start
-
-- [Download from Github](https://github.com/devias-io/react-material-dashboard/archive/master.zip) or [Download from Devias](https://devias.io/products/material-react-dashboard) or clone the repo: `git clone https://github.com/devias-io/react-material-dashboard.git`
-
-- Make sure your NodeJS and npm versions are up to date for `React 16.8.6`
-
-- Install dependencies: `npm install` or `yarn`
-
-- Start the server: `npm run start` or `yarn start`
-
-- Views are on: `localhost:3000`
-
-## Documentation
-
-The documentation for the React Material Kit is can be found [here](https://material-ui.com?ref=devias-io).
-
-## 🖌 Design Files
-
-👉[Download Sketch file](https://s3.eu-west-2.amazonaws.com/devias/products/react-material-dashboard/react-material-dashboard-free.sketch)
-
-👉[Download Figma file](https://devias.s3.eu-west-2.amazonaws.com/products/react-material-dashboard/react-material-dashboard-free.fig)
-
-## File Structure
-
-Within the download you'll find the following directories and files:
-
-```
-material-react-dashboard
-
-├── .eslintrc
-├── .gitignore
-├── .prettierrc
-├── CHANGELOG.md
-├── jsconfig.json
-├── LICENSE.md
-├── package.json
-├── README.md
-├── public
-├── docs
-└── src
-	├── assets
-	├── common
-	├── components
-	├── helpers
-	├── icons
-	├── layouts
-	├── theme
-	├── views
-	│	├── Account
-	│	├── Dashboard
-	│	├── Icons
-	│	├── NotFound
-	│	├── ProductList
-	│	├── Settings
-	│	├── SignIn
-	│	├── SignUp
-	│	├── Typography
-	│	└── UserList
-	├── App.jsx
-	├── index.jsx
-	└── Routes.jsx
-```
-
-## Resources
-
-- More freebies like this one: <https://devias.io>
-
-## Reporting Issues:
-
-- [Github Issues Page](https://github.com/devias-io/react-material-dashboard/issues?ref=devias-io)
+# Loyal card admin dashboard
+## Background
+I am a regular coffee consumer and see lots of the coffee shop use paper-based cards to reward customers with regular purchases. There are lots of paper waste of this solution and the data is not tracked and the stamp verification can be hacked easily.
+So the idea is to create a digital loyalty card solution to reduce the paper usage that can protect our environment to some extent. Also, as the spreading of the COVID-19, this solution also reduces the unnecessary contact during the business activity as the whole process is contactless. Meanwhile, this digital solution will keep the data for reporting and future big-data analysis for the customer coffee consumption behavior if the data collection is accumulated to a certain amount, and the scan verification on the one time QR code token can make sure the security of the system.
+This is a MVP (Most viable product) that verifies that the solution is feasible and makes sure the core functionalities are achieved, there will be an ongoing development roadmap to extend the features of this solution.
+The whole solution consists of three components, `core-service` , `admin-dashboard` and `client-mobile-app`.
+## Introduction
+This`admin-dashboard` will be used by the shop staff to scan the customer generated QR Code while purchase, also the dashboard will provide the report and insights of the sales data.
+### Highlights
+- This project was bootstrapped with [Create React App]([https://github.com/facebook/create-react-app](https://github.com/facebook/create-react-app)).
+- Make use of Material UI to build the backend component.
+- Use JWT for authentication with the backend `core-service`
+- Use browser Camara API for the QR Code scanning.
+- Deployed to Github pages
+## Getting started  
+### Prerequisites  
+1. Node: any version starting with 10.16.0 or greater  
+  - run `node --version` to check current node version  
+  - If you need to upgrade or install [NodeJs]([http://nodejs.org/](http://nodejs.org/)) : suggest to install via [Node Version Manager NVM]([https://github.com/creationix/nvm](https://github.com/creationix/nvm))  
+2. A clone or download of this repo on your local machine  
+### Installation  
+1. `cd` to the project root  
+2. `npm install`to install the npm dependencies  
+### Running locally  
+- `npm run start` to start the development server.
+### Deployment  
+- You can run the `npm run deploy` to deploy the project directly to Github Pages.
+- Will integrate Github Action to achive continous deployment to Github Pages (WIP).
